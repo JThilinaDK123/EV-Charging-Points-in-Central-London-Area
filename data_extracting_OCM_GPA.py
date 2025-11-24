@@ -158,14 +158,14 @@ def fetch_central_london_verified():
     seen = set()
 
     ## Create a grid of points to scan
-    lat_points = np.arange(MIN_LAT, MAX_LAT + 1e-9, 0.3)
-    lng_points = np.arange(MIN_LNG, MAX_LNG + 1e-9, 0.3)
+    lat_points = np.arange(MIN_LAT, MAX_LAT + 1e-9, 0.01)
+    lng_points = np.arange(MIN_LNG, MAX_LNG + 1e-9, 0.01)
 
     print(f"Scanning grid of {len(lat_points) * len(lng_points)} points.")
 
     for lat in lat_points:
         for lng in lng_points:
-            print(f"\nScanning Google Nearby Search at grid {lat:.4f}, {lng:.4f} ...")
+            print(f"\nScanning Google Nearby Search at grid {lat:.4f}, {lng:.4f}")
             try:
                 results = fetch_nearby(lat, lng)
             except Exception as e:
@@ -197,7 +197,7 @@ def fetch_central_london_verified():
                 place_lng = geom.get("lng") or r.get("geometry", {}).get("location", {}).get("lng")
                 
                 ## Fetch OCM Details using coordinates from Google
-                print(f"-> Found {res.get('name')}. Querying OCM...")
+                print(f"Found {res.get('name')}. Querying OCM")
                 ocm_connectors, ocm_power = fetch_ocm_details(place_lat, place_lng)
                 time.sleep(0.2)
 

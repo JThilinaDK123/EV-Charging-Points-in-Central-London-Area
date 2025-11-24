@@ -9,7 +9,6 @@ from google.cloud import storage, bigquery
 from datetime import datetime
 from google.api_core.exceptions import NotFound
 
-
 ## Configurations
 bucket_name = "ev-tracker-data-london-ocm-only"
 project_name = "fiery-atlas-472112-s9"  ## Update this Accordingly
@@ -194,10 +193,12 @@ def ocm_extractor(request):
         return ("No data returned from OCM API", 500)
 
 
+    ## Data Cleaning Steps
     df = pd.DataFrame(all_poi_data)
 
     address_info = df["AddressInfo"].apply(pd.Series).add_prefix("Address_")
 
+    ## Expand Nested Fields
     operator_info = (
         df["OperatorInfo"].apply(lambda x: x if isinstance(x, dict) else {})
         .apply(pd.Series).add_prefix("Operator_")
@@ -215,6 +216,7 @@ def ocm_extractor(request):
 
     connection_info = df["Connections"].apply(extract_connections).apply(pd.Series)
 
+    ## Combine all cleaned data
     df_final = pd.concat([
         df.drop(columns=[
             "AddressInfo", "Connections", "OperatorInfo", "UsageType", "StatusType"
@@ -222,12 +224,14 @@ def ocm_extractor(request):
         address_info, operator_info, usage_type, status_type, connection_info
     ], axis=1)
 
+    ## Create Full Address Field
     df_final["Address"] = (
         df_final["Address_AddressLine1"].fillna("") + ", " +
         df_final["Address_Town"].fillna("") + ", " +
         df_final["Address_Postcode"].fillna("")
     ).str.replace(", ,", ", ").str.strip(", ")
 
+    ## Rename Columns
     df_final = df_final.rename(columns={
         "ID": "Place_ID",
         "Operator_Title": "Operator",
@@ -238,6 +242,7 @@ def ocm_extractor(request):
         "Usage_Title": "Usage",
     })
 
+    ## Final Cleaning
     df_final['Operator'] = df_final['Operator'].replace({
         "(Business Owner at Location)": "Business Owner at Location",
         "(Unknown Operator)": "Unknown",
@@ -256,9 +261,11 @@ def ocm_extractor(request):
         "Max_Charging_Type", "Rapid_Charge_Available", "Fast_Charge_Available", "Slow_Charge_Available"
     ]
 
+    ## Handle empty Bussiness_Status
     df_final["Bussiness_Status"] = df_final["Bussiness_Status"].replace("", np.nan)
     df_final["Bussiness_Status"] = df_final["Bussiness_Status"].fillna("Unknown")
     df_final = df_final[[c for c in selected_cols if c in df_final.columns]]
+    df_final = df_final.drop_duplicates(keep='last')
 
     ## Save CSV and load to BigQuery
     today_str = datetime.now().strftime("%Y_%m_%d")

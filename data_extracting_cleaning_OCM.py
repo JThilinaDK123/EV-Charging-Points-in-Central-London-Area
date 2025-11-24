@@ -66,7 +66,6 @@ if not all_poi_data:
 
 df = pd.DataFrame(all_poi_data)
 
-
 ## AddressInfo
 address_info = df['AddressInfo'].apply(pd.Series).add_prefix("Address_")
 
@@ -182,7 +181,7 @@ selected_cols = [
     "Latitude", "Longitude", "Usage","Number_of_Connectors", "Min_Power_kW", "Max_Power_kW",
     "Max_Charging_Type", "Rapid_Charge_Available", "Fast_Charge_Available", "Slow_Charge_Available"
 ]
-
+df_final = df_final.drop_duplicates(subset=['Place_ID'], keep='last')
 df_final["Bussiness_Status"] = df_final["Bussiness_Status"].replace("", np.nan)
 df_final["Bussiness_Status"] = df_final["Bussiness_Status"].fillna("Unknown")
 

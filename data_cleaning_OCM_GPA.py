@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 
+## Classify charging type based on power
 def assign_charging_type(power):
     types = []
     for p in power:
@@ -22,6 +23,7 @@ def max_charging_type(types):
     else:
         return np.nan
 
+## Main data cleaning function
 def clean_ev_charger_data():
 
     df = pd.read_csv("GPA_OCM_Extracted_Data/central_london_gpa_ocm_extracted_data.csv")

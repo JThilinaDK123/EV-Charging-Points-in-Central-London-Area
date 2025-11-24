@@ -1574,7 +1574,6 @@ Place_ID,Operator,Bussiness_Status,Location_Name,Address,Latitude,Longitude,Usag
 252533,Shell Recharge Solutions (UK),Unknown,Shell Recharge/Ubitricity,"null, London, SW1V 2NP",51.48935,-0.137435,Public - Pay At Location,1,5.0,5.0,Slow,No,No,Yes
 264609,Shell Recharge Solutions (UK),Unknown,Shell Recharge/Ubitricity,"null, London, SW1V 2EY",51.489,-0.13869,Public - Pay At Location,1,4.8,4.8,Slow,No,No,Yes
 136098,Shell Recharge Solutions (UK),Unknown,Denbigh St 66,"Denbigh St 66, London, SW1V 2DS",51.489538,-0.138934,Public - Pay At Location,1,3.7,3.7,Slow,No,No,Yes
-264616,Shell Recharge Solutions (UK),Unknown,Shell Recharge/Ubitricity,"null, London, SW1V 2NS",51.49,-0.1382,Public - Pay At Location,1,5.0,5.0,Slow,No,No,Yes
 264608,Shell Recharge Solutions (UK),Unknown,Shell Recharge/Ubitricity,"null, London, SW1V 2DR",51.489,-0.13966,Public - Pay At Location,1,4.8,4.8,Slow,No,No,Yes
 264605,Shell Recharge Solutions (UK),Unknown,Shell Recharge/Ubitricity,"null, London, SW1V 3EX",51.488,-0.13912,Public - Pay At Location,1,5.0,5.0,Slow,No,No,Yes
 136069,Shell Recharge Solutions (UK),Unknown,Claverton St 51,"Claverton St 51, London, SW1V 3EY",51.487823,-0.138446,Public - Pay At Location,1,3.7,3.7,Slow,No,No,Yes
@@ -1729,7 +1728,6 @@ Place_ID,Operator,Bussiness_Status,Location_Name,Address,Latitude,Longitude,Usag
 254597,Total Energies (UK),Unknown,Rochester Road,"Rochester Road, Camden, NW1 9EX",51.544006,-0.136707,Public - Membership Required,2,3.0,7.0,Fast,No,Yes,Yes
 173435,Shell Recharge Solutions (UK),Unknown,10 Rochester Terrace,"10 Rochester Terrace, London, NW1 9JN",51.544858,-0.138982,Public,1,3.7,3.7,Slow,No,No,Yes
 173437,Shell Recharge Solutions (UK),Unknown,14 Rochester Terrace,"14 Rochester Terrace, London, NW1 9JN",51.544724,-0.138674,Public,1,3.7,3.7,Slow,No,No,Yes
-252576,Shell Recharge Solutions (UK),Unknown,o/s Wilkie House,"o/s Wilkie House, London, SW1P 4EH",51.49,-0.12994,Public - Pay At Location,1,5.0,5.0,Slow,No,No,Yes
 252547,Shell Recharge Solutions (UK),Unknown,4 Ponsonby Place,"4 Ponsonby Place, London, SW1P 4PT",51.489559,-0.128965,Public - Pay At Location,1,3.7,3.7,Slow,No,No,Yes
 149549,ESB Energy (UK),Operational,Goding Street,"79-82 Goding Street, Vauxhall, SE11 5AW",51.488440965380136,-0.12202460843184326,Public - Pay At Location,3,43.0,50.0,Rapid,Yes,No,No
 252297,Shell Recharge Solutions (UK),Unknown,62 Vauxhall Grove,"62 Vauxhall Grove, London, SW8 1TA",51.48491189713853,-0.12122463267475458,Public - Pay At Location,1,5.5,5.5,Slow,No,No,Yes

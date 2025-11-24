@@ -12,7 +12,7 @@ from google.cloud.exceptions import NotFound
 
 ## Configurations
 bucket_name = "ev-tracker-data-london-ocm-gpa"
-project_name = "fiery-atlas-472112-s9"
+project_name = "fiery-atlas-472112-s9"  ## Update this Accordingly
 dataset_name = "ev_data_ocm_gpa"
 table_name = "ev_chargers_ocm_gpa_cleaned"
 
@@ -177,8 +177,8 @@ def run_extraction():
     records = []
     seen = set()
 
-    lat_points = np.arange(MIN_LAT, MAX_LAT + 1e-9, 1)
-    lng_points = np.arange(MIN_LNG, MAX_LNG + 1e-9, 1)
+    lat_points = np.arange(MIN_LAT, MAX_LAT + 1e-9, 0.01)
+    lng_points = np.arange(MIN_LNG, MAX_LNG + 1e-9, 0.01)
 
     for lat in lat_points:
         for lng in lng_points:
